@@ -99,15 +99,15 @@ public class MainActivity extends AppCompatActivity {
     {
         try {
             if (exp.substring(1).contains("+"))
-                return new String("+");
+                return "+";
             if (exp.substring(1).contains("-"))
-                return new String("-");
+                return "-";
             if (exp.substring(1).contains("*"))
-                return new String("*");
+                return "*";
             if (exp.substring(1).contains("/"))
-                return new String("/");
+                return "/";
         }catch (Exception e){}
-        return new String("none");
+        return "none";
     }
 
     Boolean isVerify(String name)
