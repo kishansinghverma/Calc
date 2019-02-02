@@ -6,69 +6,258 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="126dp"
+    <EditText
+        android:id="@+id/edt"
+        android:layout_width="297dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="72dp"
+        android:ems="10"
+        android:fontFamily="casual"
+        android:inputType="number"
+        android:lineSpacingExtra="30sp"
+        android:textAlignment="textEnd"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:typeface="serif"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="297dp"
+        android:layout_height="269dp"
         android:layout_marginBottom="8dp"
-        android:text="Divide"
+        app:layout_constraintBottom_toTopOf="@+id/equal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button7"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:baselineAligned="false"
+                android:elevation="24dp"
+                android:onClick="response"
+                android:text="7"
+                android:textSize="24sp"
+                tools:layout_editor_absoluteX="70dp"
+                tools:layout_editor_absoluteY="227dp" />
+
+            <Button
+                android:id="@+id/button8"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:baselineAligned="false"
+                android:onClick="response"
+                android:text="8"
+                android:textSize="24sp"
+                tools:layout_editor_absoluteX="70dp"
+                tools:layout_editor_absoluteY="227dp" />
+
+            <Button
+                android:id="@+id/button9"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:baselineAligned="false"
+                android:onClick="response"
+                android:text="9"
+                android:textSize="24sp"
+                tools:layout_editor_absoluteX="70dp"
+                tools:layout_editor_absoluteY="227dp" />
+
+            <Space
+                android:layout_width="30dp"
+                android:layout_height="17dp" />
+
+            <Button
+                android:id="@+id/divide"
+                android:layout_width="70dp"
+                android:layout_height="65dp"
+                android:baselineAligned="false"
+                android:onClick="response"
+                android:text="/"
+                android:textSize="24sp"
+                tools:layout_editor_absoluteX="70dp"
+                tools:layout_editor_absoluteY="227dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:baselineAligned="false"
+                android:onClick="response"
+                android:text="4"
+                android:textSize="24sp"
+                tools:layout_editor_absoluteX="70dp"
+                tools:layout_editor_absoluteY="227dp" />
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:baselineAligned="false"
+                android:onClick="response"
+                android:text="5"
+                android:textSize="24sp"
+                tools:layout_editor_absoluteX="70dp"
+                tools:layout_editor_absoluteY="227dp" />
+
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:baselineAligned="false"
+                android:onClick="response"
+                android:text="6"
+                android:textSize="24sp"
+                tools:layout_editor_absoluteX="70dp"
+                tools:layout_editor_absoluteY="227dp" />
+
+            <Space
+                android:layout_width="30dp"
+                android:layout_height="17dp" />
+
+            <Button
+                android:id="@+id/multi"
+                android:layout_width="70dp"
+                android:layout_height="65dp"
+                android:baselineAligned="false"
+                android:onClick="response"
+                android:text="*"
+                android:textSize="24sp"
+                tools:layout_editor_absoluteX="70dp"
+                tools:layout_editor_absoluteY="227dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:baselineAligned="false"
+                android:onClick="response"
+                android:text="1"
+                android:textSize="24sp"
+                tools:layout_editor_absoluteX="70dp"
+                tools:layout_editor_absoluteY="227dp" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:baselineAligned="false"
+                android:onClick="response"
+                android:text="2"
+                android:textSize="24sp"
+                tools:layout_editor_absoluteX="70dp"
+                tools:layout_editor_absoluteY="227dp" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:baselineAligned="false"
+                android:onClick="response"
+                android:text="3"
+                android:textSize="24sp"
+                tools:layout_editor_absoluteX="70dp"
+                tools:layout_editor_absoluteY="227dp" />
+
+            <Space
+                android:layout_width="30dp"
+                android:layout_height="17dp" />
+
+            <Button
+                android:id="@+id/sub"
+                android:layout_width="70dp"
+                android:layout_height="65dp"
+                android:baselineAligned="false"
+                android:onClick="response"
+                android:text="-"
+                android:textSize="24sp"
+                tools:layout_editor_absoluteX="70dp"
+                tools:layout_editor_absoluteY="227dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/buttondc"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:baselineAligned="false"
+                android:onClick="response"
+                android:text="."
+                android:textSize="24sp"
+                tools:layout_editor_absoluteX="70dp"
+                tools:layout_editor_absoluteY="227dp" />
+
+            <Button
+                android:id="@+id/button0"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:baselineAligned="false"
+                android:onClick="response"
+                android:text="0"
+                android:textSize="24sp"
+                tools:layout_editor_absoluteX="70dp"
+                tools:layout_editor_absoluteY="227dp" />
+
+            <Button
+                android:id="@+id/buttonc"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:baselineAligned="false"
+                android:text="C"
+                android:textSize="24sp"
+                tools:layout_editor_absoluteX="70dp"
+                tools:layout_editor_absoluteY="227dp" />
+
+            <Space
+                android:layout_width="30dp"
+                android:layout_height="17dp" />
+
+            <Button
+                android:id="@+id/plus"
+                android:layout_width="70dp"
+                android:layout_height="65dp"
+                android:baselineAligned="false"
+                android:onClick="response"
+                android:text="+"
+                android:textSize="24sp"
+                tools:layout_editor_absoluteX="70dp"
+                tools:layout_editor_absoluteY="227dp" />
+        </TableRow>
+    </TableLayout>
+
+    <Button
+        android:id="@+id/equal"
+        android:layout_width="297dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="120dp"
+        android:text="equal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="126dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
-        android:text="Add"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="126dp"
-        android:layout_height="wrap_content"
-        android:text="Multiply"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="126dp"
-        android:layout_height="wrap_content"
-        android:text="Subtract"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
-
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:ems="10"
-        android:hint="First Number"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="31dp"
-        android:ems="10"
-        android:hint="Second Number"
-        android:inputType="number"
-        app:layout_constraintStart_toStartOf="@+id/editText"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
 </android.support.constraint.ConstraintLayout>
