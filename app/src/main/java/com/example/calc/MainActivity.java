@@ -13,7 +13,7 @@ import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
 
-    final Button[] btn=new Button[6];
+    Button c;
     EditText edt;
 
     @Override
@@ -21,12 +21,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         edt = findViewById(R.id.edt);
-        btn[0] = findViewById(R.id.buttonc);
-        btn[1] = findViewById(R.id.equal);
+        c=findViewById(R.id.buttonc);
 
-        edt.addTextChangedListener(tw);
-
-        btn[0].setOnClickListener(new View.OnClickListener() {
+        edt.setEnabled(false);
+        c.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (str.length() > 0) {
@@ -35,21 +33,29 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        c.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                str=new StringBuffer();
+                edt.setText(str);
+                return false;
+            }
+        });
     }
 
     StringBuffer str=new StringBuffer();
+
     public void response(View v) {
         String name=((Button)v).getText().toString();
         String exp=str.toString();
         String sign=getSign(exp);
-        Toast.makeText(this, name, Toast.LENGTH_SHORT).show();
-        if((name.equals("+") || name.equals("-") || name.equals("*") || name.equals("/")) && exp.contains(sign))
+        if((name.equals("+") || name.equals("-") || name.equals("*") || name.equals("/") || name.equals("=")) && exp.contains(sign))
             process();
 
-        if (isVerify(name)){
+        if (isVerify(name) && !name.equals("="))
             str.append(name);
-            edt.setText(str);
-        }
+
+        edt.setText(str);
     }
     public void process()
     {
@@ -57,7 +63,11 @@ public class MainActivity extends AppCompatActivity {
         String exp=str.toString();
         String sign=getSign(exp);
 
-        String[] values=str.toString().split("\\+|\\*|-|/");
+        String[] values=exp.substring(1).split("\\+|\\*|-|/");
+        if(exp.charAt(0)=='-')
+            values[0]="-"+values[0];
+        else
+            values[0]=exp.charAt(0)+values[0];
         try {
             Double num1 = Double.parseDouble(values[0]);
             Double num2 = Double.parseDouble(values[1]);
@@ -76,20 +86,27 @@ public class MainActivity extends AppCompatActivity {
             }
 
         }catch (Exception e){
-            str=new StringBuffer(values[0]);
+            try {
+                str = new StringBuffer(values[0]);
+            }
+            catch (Exception e5){
+                str = new StringBuffer("");
+            }
         }
 
     }
     String getSign(String exp)
     {
-        if(exp.contains("+"))
-            return new String("+");
-        if(exp.contains("-"))
-            return new String("-");
-        if(exp.contains("*"))
-            return new String("*");
-        if(exp.contains("/"))
-            return new String("/");
+        try {
+            if (exp.substring(1).contains("+"))
+                return new String("+");
+            if (exp.substring(1).contains("-"))
+                return new String("-");
+            if (exp.substring(1).contains("*"))
+                return new String("*");
+            if (exp.substring(1).contains("/"))
+                return new String("/");
+        }catch (Exception e){}
         return new String("none");
     }
 
@@ -101,38 +118,35 @@ public class MainActivity extends AppCompatActivity {
         if(name.equals("0") || name.equals("."))
         {
             if(exp.contains(sign)) {
-                String values[] = (String[]) exp.split("\\+|\\*|-|/");
+                if(name.equals(".") && exp.charAt(exp.length()-1)==sign.charAt(0))
+                    str=new StringBuffer(exp+"0");
+                String values[] = exp.split("\\+|\\*|-|/");
                 try {
                     if (values[1].contains(".") && name.equals("."))
                         return false;
-                    if (Float.parseFloat(values[1]) == 0 && name.equals("0") && !values[1].contains(".")) {
+                    if (Double.parseDouble(values[1]) == 0 && name.equals("0") && !values[1].contains(".")) {
                         return false;
                     }
                 } catch (Exception e) {}
             }
             else
             {
+                if(name.equals(".") && str.length()==0)
+                    str=new StringBuffer("0");
+
                 try {
                     if (exp.contains(".") && name.equals("."))
                         return false;
-                    if (Float.parseFloat(exp)==0 && name.equals("0") && !exp.contains("."))
+                    if (Double.parseDouble(exp)==0 && name.equals("0") && !exp.contains("."))
                         return false;
                 } catch (Exception e){}
             }
         }
+        if((name.equals("+")||name.equals("*")||name.equals("/")) && str.length()==0)
+            return false;
+        if((name.equals("+")||name.equals("-")||name.equals("*")||name.equals("/")) && exp.equals("-"))
+            return false;
 
         return true;
     }
-    TextWatcher tw=new TextWatcher() {
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {}
-
-        @Override
-        public void afterTextChanged(Editable s) {
-            str=new StringBuffer(edt.getText().toString());
-        }
-    };
 }
