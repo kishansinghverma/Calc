@@ -44,22 +44,35 @@ public class MainActivity extends AppCompatActivity {
     }
 
     StringBuffer str=new StringBuffer();
+    DecimalFormat formatter = new DecimalFormat("#####.######");
 
     public void response(View v) {
         String name=((Button)v).getText().toString();
         String exp=str.toString();
         String sign=getSign(exp);
-        if((name.equals("+") || name.equals("-") || name.equals("*") || name.equals("/") || name.equals("=")) && exp.contains(sign))
-            process();
+        if((name.equals("+") || name.equals("-") || name.equals("*") || name.equals("/") || name.equals("=")  || name.equals("\u221a") || name.equals(" x\u00B2") || name.equals("%")) && exp.contains(sign))
+            process(name);
 
-        if (isVerify(name) && !name.equals("="))
+        if (isVerify(name) && !(name.equals("=") || name.equals("\u221a") || name.equals(" x\u00B2") || name.equals("%") ))
             str.append(name);
+
+        if(name.equals("%") && str.length()>0 && !(str.length()==1 && str.charAt(0)=='-') )
+        {
+            str=new StringBuffer(String.valueOf(formatter.format((Double.parseDouble(str.toString())/100)))+"*");
+        }
+        if(name.equals("\u221a") && str.length()>0 && str.charAt(0)!='-')
+        {
+            str=new StringBuffer(String.valueOf(formatter.format(Math.sqrt(Double.parseDouble(str.toString())))));
+        }
+        if(name.equals(" x\u00B2") && str.length()>0 && !(str.length()==1 && str.charAt(0)=='-'))
+        {
+            str=new StringBuffer(String.valueOf(formatter.format(Math.pow(Double.parseDouble(str.toString()),2))));
+        }
 
         edt.setText(str);
     }
-    public void process()
+    public void process(String name)
     {
-        DecimalFormat formatter = new DecimalFormat("#####.####");
         String exp=str.toString();
         String sign=getSign(exp);
 
@@ -93,7 +106,6 @@ public class MainActivity extends AppCompatActivity {
                 str = new StringBuffer("");
             }
         }
-
     }
     String getSign(String exp)
     {

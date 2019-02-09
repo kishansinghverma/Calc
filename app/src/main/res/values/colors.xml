@@ -3,4 +3,8 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="hollow_Orange">#FF8800</color>
+    <color name="hollow_Orange_dark">#DA7400</color>
+    <color name="colorRed">#FF0000</color>
+    <color name="colorSkyblue_honor">#02AEC1</color>
 </resources>

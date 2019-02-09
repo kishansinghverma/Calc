@@ -8,9 +8,8 @@
 
     <EditText
         android:id="@+id/edt"
-        android:layout_width="297dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="72dp"
         android:clickable="false"
         android:editable="false"
         android:ems="10"
@@ -28,30 +27,104 @@
         app:barrierDirection="right"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.37"
         tools:editable="false" />
 
     <TableLayout
         android:id="@+id/tableLayout"
-        android:layout_width="297dp"
-        android:layout_height="269dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/equal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#ccc"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        android:stretchColumns="*"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            tools:layout_editor_absoluteX="36dp"
+            tools:layout_editor_absoluteY="366dp">
+
+            <Button
+                android:id="@+id/sqrt"
+                android:layout_width="wrap_content"
+                android:layout_height="85dp"
+                android:layout_margin="1px"
+                android:background="#FFFFFF"
+                android:baselineAligned="false"
+                android:onClick="response"
+                android:text="\u221a"
+                android:textColor="@color/colorSkyblue_honor"
+                android:textSize="24sp"
+                tools:layout_editor_absoluteX="70dp"
+                tools:layout_editor_absoluteY="227dp" />
+
+            <Button
+                android:id="@+id/sqr"
+                android:layout_width="wrap_content"
+                android:layout_height="85dp"
+                android:layout_margin="1px"
+                android:background="#FFFFFF"
+                android:baselineAligned="false"
+                android:onClick="response"
+                android:text=" x\u00B2"
+                android:textColor="@color/colorSkyblue_honor"
+                android:textSize="24sp"
+                tools:layout_editor_absoluteX="70dp"
+                tools:layout_editor_absoluteY="227dp" />
+
+            <Button
+                android:id="@+id/per"
+                android:layout_width="wrap_content"
+                android:layout_height="85dp"
+                android:layout_margin="1px"
+                android:background="#FFFFFF"
+                android:baselineAligned="false"
+                android:onClick="response"
+                android:text="%"
+                android:textColor="@color/colorSkyblue_honor"
+                android:textSize="24sp"
+                tools:layout_editor_absoluteX="70dp"
+                tools:layout_editor_absoluteY="227dp" />
+
+            <Button
+                android:id="@+id/divide"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="85dp"
+                android:layout_margin="1px"
+                android:background="#FFFFFF"
+                android:baselineAligned="false"
+                android:onClick="response"
+                android:text="/"
+                android:textColor="@color/colorSkyblue_honor"
+                android:textSize="24sp"
+                tools:layout_editor_absoluteX="70dp"
+                tools:layout_editor_absoluteY="227dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="visible">
 
             <Button
                 android:id="@+id/button7"
-                android:layout_width="65dp"
-                android:layout_height="65dp"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="85dp"
+                android:layout_margin="1px"
+                android:background="#FFFFFF"
                 android:baselineAligned="false"
-                android:elevation="24dp"
+                android:elevation="0dp"
                 android:onClick="response"
                 android:text="7"
                 android:textSize="24sp"
@@ -60,8 +133,11 @@
 
             <Button
                 android:id="@+id/button8"
-                android:layout_width="65dp"
-                android:layout_height="65dp"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="85dp"
+                android:layout_margin="1px"
+                android:background="#FFFFFF"
                 android:baselineAligned="false"
                 android:onClick="response"
                 android:text="8"
@@ -71,8 +147,11 @@
 
             <Button
                 android:id="@+id/button9"
-                android:layout_width="65dp"
-                android:layout_height="65dp"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="85dp"
+                android:layout_margin="1px"
+                android:background="#FFFFFF"
                 android:baselineAligned="false"
                 android:onClick="response"
                 android:text="9"
@@ -80,17 +159,16 @@
                 tools:layout_editor_absoluteX="70dp"
                 tools:layout_editor_absoluteY="227dp" />
 
-            <Space
-                android:layout_width="30dp"
-                android:layout_height="17dp" />
-
             <Button
-                android:id="@+id/divide"
-                android:layout_width="70dp"
-                android:layout_height="65dp"
+                android:id="@+id/multi"
+                android:layout_width="wrap_content"
+                android:layout_height="85dp"
+                android:layout_margin="1px"
+                android:background="#FFFFFF"
                 android:baselineAligned="false"
                 android:onClick="response"
-                android:text="/"
+                android:text="*"
+                android:textColor="@color/colorSkyblue_honor"
                 android:textSize="24sp"
                 tools:layout_editor_absoluteX="70dp"
                 tools:layout_editor_absoluteY="227dp" />
@@ -98,13 +176,15 @@
         </TableRow>
 
         <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
             <Button
                 android:id="@+id/button4"
-                android:layout_width="65dp"
-                android:layout_height="65dp"
+                android:layout_width="wrap_content"
+                android:layout_height="85dp"
+                android:layout_margin="1px"
+                android:background="#FFFFFF"
                 android:baselineAligned="false"
                 android:onClick="response"
                 android:text="4"
@@ -114,8 +194,10 @@
 
             <Button
                 android:id="@+id/button5"
-                android:layout_width="65dp"
-                android:layout_height="65dp"
+                android:layout_width="wrap_content"
+                android:layout_height="85dp"
+                android:layout_margin="1px"
+                android:background="#FFFFFF"
                 android:baselineAligned="false"
                 android:onClick="response"
                 android:text="5"
@@ -125,8 +207,10 @@
 
             <Button
                 android:id="@+id/button6"
-                android:layout_width="65dp"
-                android:layout_height="65dp"
+                android:layout_width="wrap_content"
+                android:layout_height="85dp"
+                android:layout_margin="1px"
+                android:background="#FFFFFF"
                 android:baselineAligned="false"
                 android:onClick="response"
                 android:text="6"
@@ -134,30 +218,32 @@
                 tools:layout_editor_absoluteX="70dp"
                 tools:layout_editor_absoluteY="227dp" />
 
-            <Space
-                android:layout_width="30dp"
-                android:layout_height="17dp" />
-
             <Button
-                android:id="@+id/multi"
-                android:layout_width="70dp"
-                android:layout_height="65dp"
+                android:id="@+id/sub"
+                android:layout_width="wrap_content"
+                android:layout_height="85dp"
+                android:layout_margin="1px"
+                android:background="#FFFFFF"
                 android:baselineAligned="false"
                 android:onClick="response"
-                android:text="*"
+                android:text="-"
+                android:textColor="@color/colorSkyblue_honor"
                 android:textSize="24sp"
                 tools:layout_editor_absoluteX="70dp"
                 tools:layout_editor_absoluteY="227dp" />
+
         </TableRow>
 
         <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
             <Button
                 android:id="@+id/button1"
-                android:layout_width="65dp"
-                android:layout_height="65dp"
+                android:layout_width="wrap_content"
+                android:layout_height="85dp"
+                android:layout_margin="1px"
+                android:background="#FFFFFF"
                 android:baselineAligned="false"
                 android:onClick="response"
                 android:text="1"
@@ -167,8 +253,10 @@
 
             <Button
                 android:id="@+id/button2"
-                android:layout_width="65dp"
-                android:layout_height="65dp"
+                android:layout_width="wrap_content"
+                android:layout_height="85dp"
+                android:layout_margin="1px"
+                android:background="#FFFFFF"
                 android:baselineAligned="false"
                 android:onClick="response"
                 android:text="2"
@@ -178,8 +266,10 @@
 
             <Button
                 android:id="@+id/button3"
-                android:layout_width="65dp"
-                android:layout_height="65dp"
+                android:layout_width="wrap_content"
+                android:layout_height="85dp"
+                android:layout_margin="1px"
+                android:background="#FFFFFF"
                 android:baselineAligned="false"
                 android:onClick="response"
                 android:text="3"
@@ -187,17 +277,16 @@
                 tools:layout_editor_absoluteX="70dp"
                 tools:layout_editor_absoluteY="227dp" />
 
-            <Space
-                android:layout_width="30dp"
-                android:layout_height="17dp" />
-
             <Button
-                android:id="@+id/sub"
-                android:layout_width="70dp"
-                android:layout_height="65dp"
+                android:id="@+id/plus"
+                android:layout_width="wrap_content"
+                android:layout_height="85dp"
+                android:layout_margin="1px"
+                android:background="#FFFFFF"
                 android:baselineAligned="false"
                 android:onClick="response"
-                android:text="-"
+                android:text="+"
+                android:textColor="@color/colorSkyblue_honor"
                 android:textSize="24sp"
                 tools:layout_editor_absoluteX="70dp"
                 tools:layout_editor_absoluteY="227dp" />
@@ -205,15 +294,17 @@
         </TableRow>
 
         <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="vertical">
 
             <Button
                 android:id="@+id/buttondc"
-                android:layout_width="65dp"
-                android:layout_height="65dp"
+                android:layout_width="wrap_content"
+                android:layout_height="85dp"
+                android:layout_margin="1px"
+                android:background="#FFFFFF"
                 android:baselineAligned="false"
                 android:onClick="response"
                 android:text="."
@@ -223,8 +314,10 @@
 
             <Button
                 android:id="@+id/button0"
-                android:layout_width="65dp"
-                android:layout_height="65dp"
+                android:layout_width="wrap_content"
+                android:layout_height="85dp"
+                android:layout_margin="1px"
+                android:background="#FFFFFF"
                 android:baselineAligned="false"
                 android:onClick="response"
                 android:text="0"
@@ -234,40 +327,33 @@
 
             <Button
                 android:id="@+id/buttonc"
-                android:layout_width="65dp"
-                android:layout_height="65dp"
+                android:layout_width="wrap_content"
+                android:layout_height="85dp"
+                android:layout_margin="1px"
+                android:background="#FFFFFF"
                 android:baselineAligned="false"
                 android:text="C"
+                android:textColor="@color/colorSkyblue_honor"
                 android:textSize="24sp"
                 tools:layout_editor_absoluteX="70dp"
                 tools:layout_editor_absoluteY="227dp" />
-
-            <Space
-                android:layout_width="30dp"
-                android:layout_height="17dp" />
 
             <Button
-                android:id="@+id/plus"
-                android:layout_width="70dp"
-                android:layout_height="65dp"
+                android:id="@+id/equal"
+                android:layout_width="wrap_content"
+                android:layout_height="85dp"
+                android:layout_margin="1px"
+                android:background="@color/colorSkyblue_honor"
                 android:baselineAligned="false"
                 android:onClick="response"
-                android:text="+"
+                android:text="="
+                android:textColor="@android:color/background_light"
                 android:textSize="24sp"
                 tools:layout_editor_absoluteX="70dp"
                 tools:layout_editor_absoluteY="227dp" />
-        </TableRow>
-    </TableLayout>
 
-    <Button
-        android:id="@+id/equal"
-        android:layout_width="297dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="120dp"
-        android:onClick="response"
-        android:text="="
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        </TableRow>
+
+    </TableLayout>
 
 </android.support.constraint.ConstraintLayout>
