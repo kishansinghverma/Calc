@@ -56,17 +56,21 @@ public class MainActivity extends AppCompatActivity {
         if (isVerify(name) && !(name.equals("=") || name.equals("\u221a") || name.equals(" x\u00B2") || name.equals("%") ))
             str.append(name);
 
-        if(name.equals("%") && str.length()>0 && !(str.length()==1 && str.charAt(0)=='-') )
-        {
-            str=new StringBuffer(String.valueOf(formatter.format((Double.parseDouble(str.toString())/100)))+"*");
+        if(!str.toString().contains("∞")) {
+            if (name.equals("%") && str.length() > 0 && !(str.length() == 1 && str.charAt(0) == '-')) {
+                str = new StringBuffer(String.valueOf(formatter.format((Double.parseDouble(str.toString()) / 100))) + "*");
+            }
+            if (name.equals("\u221a") && str.length() > 0 && str.charAt(0) != '-') {
+                str = new StringBuffer(String.valueOf(formatter.format(Math.sqrt(Double.parseDouble(str.toString())))));
+            }
+            if (name.equals(" x\u00B2") && str.length() > 0 && !(str.length() == 1 && str.charAt(0) == '-')) {
+                str = new StringBuffer(String.valueOf(formatter.format(Math.pow(Double.parseDouble(str.toString()), 2))));
+            }
         }
-        if(name.equals("\u221a") && str.length()>0 && str.charAt(0)!='-')
+        else
         {
-            str=new StringBuffer(String.valueOf(formatter.format(Math.sqrt(Double.parseDouble(str.toString())))));
-        }
-        if(name.equals(" x\u00B2") && str.length()>0 && !(str.length()==1 && str.charAt(0)=='-'))
-        {
-            str=new StringBuffer(String.valueOf(formatter.format(Math.pow(Double.parseDouble(str.toString()),2))));
+            str = new StringBuffer("");
+            Toast.makeText(this, "Invalid Expression!", Toast.LENGTH_SHORT).show();
         }
 
         edt.setText(str);
